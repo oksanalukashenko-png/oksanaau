@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+    <entity name="DayEntity" representedClassName="DayEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="templateId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventEntity" inverseName="day" inverseEntity="EventEntity"/>
+    </entity>
+    <entity name="EventEntity" representedClassName="EventEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="colorHex" attributeType="String" defaultValueString="#FF5C5C"/>
+        <attribute name="iconName" attributeType="String" defaultValueString="icon_work"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="photoPath" optional="YES" attributeType="String"/>
+        <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String" defaultValueString=""/>
+        <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayEntity" inverseName="events" inverseEntity="DayEntity"/>
+    </entity>
+</model>
+
